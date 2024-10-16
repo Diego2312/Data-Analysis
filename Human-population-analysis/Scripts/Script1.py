@@ -8,8 +8,8 @@ pd.set_option('display.max_colwidth', None)
 
 #Read data
 
-df_world_pop = pd.read_csv(r"C:\Users\Owner\ACSAI\Extra\Human-population-analysis\Datasets\API_SP.POP.TOTL_DS2_en_csv_v2_31753\API_SP.POP.TOTL_DS2_en_csv_v2_31753.csv", skiprows=4)
-df_world_gdp = pd.read_csv(r"C:\Users\Owner\ACSAI\Extra\Human-population-analysis\Datasets\API_NY.GDP.MKTP.CD_DS2_en_csv_v2_31795\API_NY.GDP.MKTP.CD_DS2_en_csv_v2_31795.csv", skiprows=4) #Brazil gdp data
+df_world_pop = pd.read_csv(r"C:\Users\Owner\ACSAI\Extra\Data-Analysis\Human-population-analysis\Datasets\API_SP.POP.TOTL_DS2_en_csv_v2_31753\API_SP.POP.TOTL_DS2_en_csv_v2_31753.csv", skiprows=4)
+df_world_gdp = pd.read_csv(r"C:\Users\Owner\ACSAI\Extra\Data-Analysis\Human-population-analysis\Datasets\API_NY.GDP.MKTP.CD_DS2_en_csv_v2_31795\API_NY.GDP.MKTP.CD_DS2_en_csv_v2_31795.csv", skiprows=4) #Brazil gdp data
 
 
 #Create new col for total pop
@@ -22,6 +22,8 @@ df_tot_pop = df_world_pop1.loc[266, "1960":"2023"] #Series with year and total p
 df_tot_pop = pd.DataFrame(df_tot_pop).reset_index(drop=False) #Convert to df
 df_tot_pop.rename(columns={"index":"Year", 266: "Total pop"}, inplace=True) #Rename cols
 df_tot_pop["Year"] =df_tot_pop["Year"].astype(int) #Convert str cols to ints
+
+print(df_tot_pop.tail())
 
 #Plot
 
